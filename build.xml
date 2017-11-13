@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="emma">
+
+	<path id="emma.lib">
+		<pathelement location="${emma.dir}/lib/emma-2.0.5312.jar" />
+		<pathelement location="${emma.dir}/lib/emma_ant-2.0.5312.jar" />
+	</path>
+	<taskdef resource="emma_ant.properties" classpathref="emma.lib" />
+
+	<path id="run.classpath">
+		<pathelement location="${build.classpath}" />
+	</path>
+
+	<target name="instr">
+		<emma enabled="true">
+			<instr instrpathref="run.classpath" metadatafile="${emma.dir}/work/coverage.em" mode="overwrite" />
+		</emma>
+	</target>
+
+	<target name="report">
+		<emma enabled="true">
+			<report>
+				<fileset dir="${emma.dir}">
+					<include name="work/coverage.*" />
+				</fileset>
+				<html outfile="${emma.dir}/report/coverage.html" />
+			</report>
+		</emma>
+	</target>
+
+</project>
