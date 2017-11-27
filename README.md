@@ -49,13 +49,21 @@ Your structure should look like below:
 
 / path / to / your / project folder
 
+
 |____ main/java/src
+
 |____ pom.xml
-|____ emma            
-      |____ build.xml            
-      |____ lib                        
-            |____ emma-<version>.jar                        
-            |____ emma_ant<version>.jar
+
+|____ emma
+
+|__________ build.xml
+
+|__________ lib
+
+|______________ emma-<version>.jar
+
+|______________ emma_ant<version>.jar
+
 
 
 Now you are ready for your main solution.
